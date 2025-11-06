@@ -1,4 +1,5 @@
-Are you tired of never finding games that suit your taste?
+Are you tired of never finding games that suit your taste?... 
+
 Then Get Rec'd! 
 
 We are a video game recommendation application. Simply input the title of a game you've enjoyed, and we'll provide you with some great recommendations!
