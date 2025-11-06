@@ -1,0 +1,17 @@
+<!-- templates/about.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>About US</h2>
+    <h3><em>Are you tired of never finding games that suit your taste?</em></h3>
+    <p>Then <strong>Get Rec'd!</strong> We are a video game recommendation application.
+        Simply input the title of a game you've enjoyed, and we'll provide you with some great recommendations! </p>
+
+    <p>
+        This application uses content-based filtering powered by a video game dataset downloaded from Kaggle.
+        We use TF-IDF vectorization and cosine similarity to find the most relevant games based on descriptions and genres.
+    </p>
+    <p>
+        Account management, recommendations, and image fetching are handled by separate, modular services within our monolithic structure.
+    </p>
+{% endblock %}

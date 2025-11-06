@@ -1,0 +1,12 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Find Game Recommendations</h2>
+    <form method="POST" action="{{ url_for('main.get_recs') }}">
+        <div class="form-group">
+            <input type="text" name="Name" placeholder="Enter a game title and get recommendations" required>
+        </div>
+        <button type="submit">Get Rec'd</button>
+    </form>
+{% endblock %}

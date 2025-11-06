@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Rec'd</title>
+    <!-- Link to our static CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+        function confirmLogout() {
+            // The prompt message you requested
+            var confirmation = confirm("Logging out will end our session, Are you sure?");
+            if (confirmation) {
+                // If the user clicks OK, proceed to the logout URL
+                window.location.href = "{{ url_for('auth.logout') }}";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Get Rec'd</div>
+            <nav class="main-nav">
+                <ul>
+                    {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                        <li><a href="{{ url_for('main.about') }}">About</a></li>
+                        <!-- Modify the Logout link -->
+                        <li class="tooltip-container">
+                            <!-- Use JavaScript for the action and visual tooltip -->
+                            <a href="#" onclick="confirmLogout(); return false;" class="logout-link">Logout</a>
+                            <!-- The hovering text bubble -->
+                            <span class="tooltip-text">Logging out will end our session, Are you sure?</span>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                        <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>
+

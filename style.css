@@ -1,0 +1,228 @@
+
+
+:root {
+    --primary-color: #2F4F4F;
+    --secondary-color: #8FBC8F;
+    --accent-color: #ff9933;
+    --highlight-color: #FF7A1E;
+    --text-color: #e0e0e0;
+    --text-color-dark: #333333;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color); /* Use light text on dark background */
+    margin: 0;
+    padding: 0;
+    /* Center the body content horizontally */
+    display: flex;
+    justify-content: center;
+    min-height: 100vh; /* Ensure the body takes at least the full screen height */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: var(--highlight-color);
+    text-align: center;
+}
+
+header {
+    background-color: var(--secondary-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Stronger drop shadow */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 3.0em;
+    font-weight: bold;
+    color: var(--text-color);
+    text-shadow:
+    -.5px -.5px 0 black,
+    .5px -.5px 0 black,
+    -.5px .5px 0 black,
+    .5px .5px 0 black; /* Creates a 1px black border */
+}
+
+
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Vertically centers the items if they have different heights */
+}
+
+/* Style the individual list items (the containers for the links) */
+.main-nav li {
+    background-color: var(--primary-color); /* Light grey background */
+    border-radius: 4px;
+    margin: 0 5px; /* Adds space between items */
+}
+
+.main-nav li a {
+    color: #f0f0f0;
+    text-decoration: border;
+    padding: 8px 12px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-nav li a:hover {
+    background-color: var(--accent-color); /* Vibrant blue on hover */
+    color: white; /* White text on blue background */
+    border-radius: 4px;
+}
+
+/* Center main content (forms, paragraphs, etc.) */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* General form elements styling */
+form {
+    max-width: 450px;
+    margin: 20px 0;
+    padding: 30px;
+    background-color: var(--card-bg); /* White background for contrast */
+    color: var(--text-color-dark); /* Dark text on white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: var(--background-color); /* Dark input background */
+    color: black;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    background-color: var(--highlight-color); /* Vibrant red button */
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff8099;
+}
+
+p.center-text {
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* Game Card Styling (Results Page) */
+.results-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.game-card {
+    background-color: var(--card-bg);
+    color: var(--text-color-dark);
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2); 
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.game-card img {
+    height: 180px; 
+    object-fit: cover;
+}
+
+.game-info {
+    padding: 15px;
+}
+
+a:visited {
+  color: #800080; /* Sets visited links to purple */
+}
+
+
+/* Tooltip container styles */
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text bubble */
+.tooltip-container .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 125%; /* Position the tooltip above the text */
+    left: 50%;
+    margin-left: -100px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip-container .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--secondary-color) transparent transparent transparent;
+}
+
+/* Show the tooltip text when hovering over the container */
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Style for the confirmation link when JavaScript is enabled */
+.logout-link {
+    cursor: pointer;
+}
